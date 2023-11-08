@@ -10,42 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-const int	is_space(char c)
+#include <stdlib.h>
+
+const int	count_digits(int n)
 {
-	return (c == ' ' || (c >= 9 && c <= 13));
+	int	digits;
+
+	while ((n / 10) <= 9 ) // probably < 1
+	{
+		n = n / 10;
+		digits++;
+	}
+	return (digits);
 }
 
-const int	is_num(char c)
+char	*ft_itoa(int n)
 {
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_atoi(char *str)
-{
-	int	sign;
-	int	result;
+	char	*result;
+	int	digits;
 	int	i;
 
 	result = 0;
-	sign = 1;
-	i = 0;
-	while (is_space(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (n < 0)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		digits++;
+		n *= -1;
 	}
-	while (str[i] && (is_num(str[i])))
-	{
-		if (is_num(str[i]))
-			result = result * 10 + (str[i] - '0');
-		else
-			return (result *= sign);
-		i++;
-	}
-	return (result *= sign);
+	digits += count_digits(n);
+	result = malloc(sizeof(char) * digits);
+	if (result == 0)
+		return (0);
+	
+	return (result);
 }
 
 /* #include <stdlib.h>
