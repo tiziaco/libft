@@ -6,29 +6,24 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/14 16:36:11 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:56:46 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_bzero(void *str, size_t n)
+void	ft_bzero(void *str, size_t n)
 {
 	unsigned char	*tmp;
-	int	i;
 
-	// Check if it is necessary
-	if (n == 0)
-		return str;
-	i = 0;
 	tmp = str;
-	while(tmp && i < n)
+	if (n == 0)
+		return;
+	while (n-- > 0)
 	{
 		*tmp = 0;
 		tmp++;
-		i++;
 	}
-	return (str);
 }
 
 #include <stdio.h>

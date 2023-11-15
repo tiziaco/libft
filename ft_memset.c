@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/14 16:24:18 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:50:03 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 void	*ft_memset(void *str, int c, size_t n)
 {
 	unsigned char	*tmp;
-	int	i;
 
-	// Check if it is necessary
+	tmp = str;
 	if (n == 0)
 		return str;
-	i = 0;
-	tmp = str;
-	while(tmp && i < n)
+	while (n-- > 0)
 	{
-		*tmp = c;
+		*tmp = (unsigned char)c;
 		tmp++;
-		i++;
 	}
 	return (str);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 #include <string.h>
 int main() 
 {
@@ -77,4 +73,4 @@ int main()
 	printf("%s", arr3);
 
 	return (0); 
-} 
+}  */
