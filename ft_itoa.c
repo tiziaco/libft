@@ -6,57 +6,60 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/14 13:45:03 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:39:42 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-const int	count_digits(int n)
+const char	*reverse_str(char *str)
 {
-	int	digits;
+    int start = 0;
+    int end = i - 1;
+	char temp;
+    while (start < end)
+	{
+        temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
 
-	digits = 0;
-	if (n < 0)
-	{
-		digits++;
-		n *= -1;
-	}
-	while (n > 0.1 )
-	{
-		digits++;
-		n = n / 10;
-	}
-	return (digits);
+        start++;
+        end--;
+    }
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*result;
-	int		digits;
+	char	*str;
+	int		is_negative;
 	int		i;
 
-	digits = 0;
-	digits += count_digits(n);
-	result = malloc(sizeof(char) * digits);
-	if (result == 0)
-		return (0);
+	is_negative = 0;
 	i = 0;
-	if (n < 0)
+    if (n == 0)
 	{
-		i = 1;
-		n *= -1;
-		result[0] = '-';
-		digits -= 1;
-	}
-	while (digits >= i)
+        str[0] = '0';
+        str[1] = '\0';
+    } else if (n < 0)
 	{
-		result[digits] = 48 + (n % 10);
-		n /= 10;
-		digits--;
-	}
-	return (result);
+        is_negative = 1;
+        n = -n;
+    }
+    while (n > 0)
+	{
+        str[i] = (n % 10) + '0';
+        n /= 10;
+        i++;
+    }
+    if (is_negative)
+	{
+        str[i] = '-';
+        i++;
+    }
+    str[i] = '\0';
+	return (reverse_str(str));
 }
 
 #include <stdlib.h>

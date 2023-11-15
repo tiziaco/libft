@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 13:56:46 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:38:35 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_bzero(void *str, size_t n)
 	}
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 #include <string.h>
 int main() 
 {
@@ -72,4 +72,4 @@ int main()
 	printf("%s", arr3);
 
 	return (0); 
-}
+} */
