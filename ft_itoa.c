@@ -1,77 +1,89 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/31 17:25:19 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:39:42 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-const int	count_digits(int n)
+const char	*reverse_str(char *str)
 {
-	int	digits;
-
-	while ((n / 10) <= 9 ) // probably < 1
+    int start = 0;
+    int end = i - 1;
+	char temp;
+    while (start < end)
 	{
-		n = n / 10;
-		digits++;
-	}
-	return (digits);
+        temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+
+        start++;
+        end--;
+    }
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*result;
-	int	digits;
-	int	i;
+	char	*str;
+	int		is_negative;
+	int		i;
 
-	result = 0;
-	if (n < 0)
+	is_negative = 0;
+	i = 0;
+    if (n == 0)
 	{
-		digits++;
-		n *= -1;
-	}
-	digits += count_digits(n);
-	result = malloc(sizeof(char) * digits);
-	if (result == 0)
-		return (0);
-	
-	return (result);
+        str[0] = '0';
+        str[1] = '\0';
+    } else if (n < 0)
+	{
+        is_negative = 1;
+        n = -n;
+    }
+    while (n > 0)
+	{
+        str[i] = (n % 10) + '0';
+        n /= 10;
+        i++;
+    }
+    if (is_negative)
+	{
+        str[i] = '-';
+        i++;
+    }
+    str[i] = '\0';
+	return (reverse_str(str));
 }
 
-/* #include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
-int main() 
+int main(void) 
 {
-	char *test_strings[] = {
-		"12345",       // Positive number
-		" +-678",        // Negative number
-		" +++678",
-		"++0",           // Zero
-		"  +-987",       // Leading spaces
-		"+42",         // Leading plus sign
-		"  -123abc",   // Ignore non-numeric characters after digits
-		"123abc",      // Stop at non-numeric characters
-		"-2147483648", // Minimum signed int value
-		"2147483647",  // Maximum signed int value
-		"  -++-+ 998",  // Larger than maximum signed int value
-		"-9999999999", // Smaller than minimum signed int value
-		" ++-+++---1234aa52",
-		" aa-+++---1554aa52",
+	int test_numbers[] = {
+		12345,
+		+678,
+		-679,
+		0,
+		1,
+		-3
 	};
 
-	int num_tests = sizeof(test_strings) / sizeof(test_strings[0]);
-
+	int num_tests = sizeof(test_numbers) / sizeof(test_numbers[0]);
+	// printf("%d", num_tests);
+	
 	for (int i = 0; i < num_tests; i++) 
 	{
-		printf("String: \"%s\"\nSTD: %d, 42: %d\n", 
-				test_strings[i], atoi(test_strings[i]), ft_atoi(test_strings[i]));
+		printf("Number: %d - str: %s\n", 
+				test_numbers[i], ft_itoa(test_numbers[i]));
+		// printf("Digits: %d\n", count_digits(test_numbers[i]));
 	}
+
 	return 0;
 }
- */

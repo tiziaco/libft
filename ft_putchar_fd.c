@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 18:43:56 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 13:08:24 by tiacovel         ###   ########.fr       */
+/*   Created: 2023/11/15 15:41:23 by tiacovel          #+#    #+#             */
+/*   Updated: 2023/11/15 16:07:39 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int  c)
+#include <unistd.h>
+#include <fcntl.h> 
+
+void    ft_putchar_fd(char c, int fd)
 {
-		if (c >= 0 && c <= 127) 
-			return (1);
-		else
-			return (0);
+	write(fd, &c, 1);
 }
 
-/* # include <stdio.h>
-int	main(void)
+/* #include <stdio.h>
+int main(void)
 {
-	char	c = 'a';
+	int fd;
 	
-	printf("Character: %c\n", c);
-	printf("Is the char in US-ASCII? %d", ft_isascii(c));
+	fd = open("test2.txt", O_RDWR);
+	ft_putchar_fd('a', fd);
+	printf("Called write function\n");
+	close(fd);
 	return (0);
-}
-*/
+} */

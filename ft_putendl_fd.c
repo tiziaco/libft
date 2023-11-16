@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 18:43:56 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 13:08:24 by tiacovel         ###   ########.fr       */
+/*   Created: 2023/11/15 15:41:23 by tiacovel          #+#    #+#             */
+/*   Updated: 2023/11/15 16:13:14 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int  c)
+#include <unistd.h>
+#include <fcntl.h> 
+
+void    ft_putendl_fd(char *s, int fd)
 {
-		if (c >= 0 && c <= 127) 
-			return (1);
-		else
-			return (0);
+	while (*s)
+	{
+		write(fd, &(*s), 1);
+		s++;
+	}
+	write(fd, "\n", 1);
 }
 
-/* # include <stdio.h>
-int	main(void)
+#include <stdio.h>
+int main(void)
 {
-	char	c = 'a';
+	int fd;
 	
-	printf("Character: %c\n", c);
-	printf("Is the char in US-ASCII? %d", ft_isascii(c));
+	fd = open("test.txt", O_RDWR);
+	ft_putendl_fd(" world", fd);
+	printf("Called write function\n");
+	close(fd);
 	return (0);
 }
-*/
