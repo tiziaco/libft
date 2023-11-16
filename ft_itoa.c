@@ -11,55 +11,54 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-const char	*reverse_str(char *str)
+static char	*convert_number(char *s, unsigned int number, int len)
 {
-    int start = 0;
-    int end = i - 1;
-	char temp;
-    while (start < end)
+	while (number > 0)
 	{
-        temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
+		s[len--] = 48 + (number % 10);
+		number = number / 10;
+	}
+	return (s);
+}
 
-        start++;
-        end--;
-    }
-	return (str);
+static int	number_length(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		is_negative;
-	int		i;
+	char			*s;
+	int		len;
+	unsigned int	number;
 
-	is_negative = 0;
-	i = 0;
-    if (n == 0)
+	len = number_length(n);
+	s = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(s))
+		return (NULL);
+	s[len--] = '\0';
+	if (n == 0)
+		s[0] = '0';
+	if (n < 0)
 	{
-        str[0] = '0';
-        str[1] = '\0';
-    } else if (n < 0)
-	{
-        is_negative = 1;
-        n = -n;
-    }
-    while (n > 0)
-	{
-        str[i] = (n % 10) + '0';
-        n /= 10;
-        i++;
-    }
-    if (is_negative)
-	{
-        str[i] = '-';
-        i++;
-    }
-    str[i] = '\0';
-	return (reverse_str(str));
+		number = n * -1;
+		s[0] = '-';
+	}
+	else
+		number = n;
+	s = convert_number(s, number, len);
+	return (s);
 }
 
 #include <stdlib.h>
