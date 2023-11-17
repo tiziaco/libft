@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 16:39:42 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:04:55 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 	return (s);
 }
 
-#include <stdlib.h>
+/* #include <stdlib.h>
 #include <stdio.h>
 int main(void) 
 {
@@ -85,4 +85,4 @@ int main(void)
 	}
 
 	return 0;
-}
+} */
