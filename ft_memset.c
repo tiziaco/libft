@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 13:50:03 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:37:20 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *str, int c, size_t n)
 
 	tmp = str;
 	if (n == 0)
-		return str;
+		return (str);
 	while (n-- > 0)
 	{
 		*tmp = (unsigned char)c;

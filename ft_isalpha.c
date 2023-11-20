@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiacovel <tiacovel@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:43:56 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/27 19:24:03 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:27:25 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int  c)
+int	ft_isalpha(int c)
 {
-		if (c >= 'A' && c <= 'Z') 
-			return (1);
-		else if (c >= 'a' && c <= 'z')
-			return (2);
-		else
-			return (0);
+	if (c >= 'A' && c <= 'Z') 
+		return (1);
+	else if (c >= 'a' && c <= 'z')
+		return (2);
+	else
+		return (0);
 }
 
 /* # include <stdio.h>

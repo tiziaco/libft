@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiacovel <tiacovel@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/29 18:49:43 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:45:24 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_strcmp(const char *s1, const char *s2)
 {
-	while(*s1 != 0 && *s2 != 0)
+	while (*s1 != 0 && *s2 != 0)
 	{
 		if (*s1 != *s2)
 			return (*s1 - *s2);
@@ -26,7 +26,7 @@ static int	ft_strcmp(const char *s1, const char *s2)
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while ((*haystack != 0) && (i < len))

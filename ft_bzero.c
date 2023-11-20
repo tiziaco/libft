@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 15:38:35 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:38:49 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_bzero(void *str, size_t n)
 
 	tmp = str;
 	if (n == 0)
-		return;
+		return ;
 	while (n-- > 0)
 	{
 		*tmp = 0;

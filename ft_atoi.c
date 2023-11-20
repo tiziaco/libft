@@ -6,16 +6,16 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/31 17:25:19 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:42:22 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-const int	is_space(char c)
+static int	is_space(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
-const int	is_num(char c)
+static int	is_num(char c)
 {
 	return (c >= '0' && c <= '9');
 }

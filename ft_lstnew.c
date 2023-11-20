@@ -6,11 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:49 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/17 16:21:42 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:26:26 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
@@ -24,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	return (node);
 }
 
-#include<stdio.h>
+/* #include<stdio.h>
 int main(void)
 {
 	// Example with an integer
@@ -46,4 +46,4 @@ int main(void)
 	free(stringNode);
 
 	return 0;
-}
+} */

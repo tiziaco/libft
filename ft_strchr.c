@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiacovel <tiacovel@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:35:37 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/27 17:51:46 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:29:55 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	while ((*str != '\0') && (*str != c))
 		str++;
 	return ((char *)str);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 #include <string.h>
 int	main(void)
 {
@@ -28,4 +28,4 @@ int	main(void)
 	printf("STD function: %s\n", strchr(string, c));
 	return (0);
 }
-
+ */

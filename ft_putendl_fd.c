@@ -6,14 +6,14 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:23 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 16:13:14 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:17:24 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h> 
 
-void    ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	while (*s)
 	{
@@ -23,7 +23,7 @@ void    ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 int main(void)
 {
 	int fd;
@@ -33,4 +33,4 @@ int main(void)
 	printf("Called write function\n");
 	close(fd);
 	return (0);
-}
+} */
