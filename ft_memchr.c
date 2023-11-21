@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 13:32:06 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:41:32 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int main(void) {
 	void *result_my_memchr = ft_memchr(test_str, target_char, strlen(test_str));
 
 	if (result_my_memchr != NULL) {
-		printf("my_memchr: Character '%c' found at position: %ld\n", target_char, (char *)result_my_memchr - test_str);
+		printf("my_memchr: Character '%c' found at position: %ld\n", 
+		target_char, (char *)result_my_memchr - test_str);
 	} else {
 		printf("my_memchr: Character '%c' not found in the string.\n", target_char);
 	}
@@ -45,7 +46,8 @@ int main(void) {
 	void *result_memchr = memchr(test_str, target_char, strlen(test_str));
 
 	if (result_memchr != NULL) {
-		printf("memchr: Character '%c' found at position: %ld\n", target_char, (char *)result_memchr - test_str);
+		printf("memchr: Character '%c' found at position: %ld\n", 
+		target_char, (char *)result_memchr - test_str);
 	} else {
 		printf("memchr: Character '%c' not found in the string.\n", target_char);
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiacovel <tiacovel@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/29 18:49:43 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:50:15 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_strlen_sep(const char *str, const char *charset)
 	return (i);
 }
 
-char    *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		len_word;
 	int		i;
@@ -62,8 +62,7 @@ char    *ft_strtrim(char const *s1, char const *set)
 	return (word);
 }
 
-#include <stdio.h>
-
+/* #include <stdio.h>
 int	main(void)
 {
 	char s1[] = "Hello--how--are--you";
@@ -72,4 +71,4 @@ int	main(void)
 	printf("42 function: %s", ft_strtrim(s1, set));
 	// printf("\nSTD function: %d", substr(s1, start, len));
 	return (0);
-}
+} */

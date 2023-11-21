@@ -6,16 +6,16 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:43:56 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 13:08:24 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:27:39 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int  c)
+int	ft_isascii(int c)
 {
-		if (c >= 0 && c <= 127) 
-			return (1);
-		else
-			return (0);
+	if (c >= 0 && c <= 127) 
+		return (1);
+	else
+		return (0);
 }
 
 /* # include <stdio.h>

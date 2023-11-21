@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiacovel <tiacovel@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/29 18:49:43 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:33:03 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	int		i;
 	char	*substr;
 
 	substr = (char *)malloc(len + 1);

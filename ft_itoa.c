@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/17 17:04:55 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:20:57 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	number_length(int n)
 char	*ft_itoa(int n)
 {
 	char			*s;
-	int		len;
+	int				len;
 	unsigned int	number;
 
 	len = number_length(n);

@@ -6,11 +6,36 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:12:49 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/17 17:19:30 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:41:48 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
+}
+
+/* #include<stdio.h>
+// Function to print the content of each node in the list
+void print_list(t_list *lst)
+{
+    while (lst)
+    {
+        printf("%p ", lst->content);
+        lst = lst->next;
+    }
+    printf("\n");
+}
 
 t_list	*ft_lstnew(void *content)
 {
@@ -22,31 +47,6 @@ t_list	*ft_lstnew(void *content)
 	node->content = content;
 	node->next = NULL;
 	return (node);
-}
-
-void ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!new)
-		return ;
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	new->next = *lst;
-    *lst = new;
-}
-
-#include<stdio.h>
-// Function to print the content of each node in the list
-void print_list(t_list *lst)
-{
-    while (lst)
-    {
-        printf("%p ", lst->content);
-        lst = lst->next;
-    }
-    printf("\n");
 }
 
 int main(void)
@@ -71,4 +71,4 @@ int main(void)
 	free(stringNode);
 
 	return 0;
-}
+} */

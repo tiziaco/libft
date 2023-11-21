@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 11:19:50 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/09/10 12:13:27 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:40:49 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,25 +73,25 @@ static char	*ft_word(char *str, char *charset)
 	return (word);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char *s, char *c)
 {
 	char	**strings;
 	int		i;
 
 	i = 0;
 	strings = (char **)malloc(sizeof(char *)
-			* (count_strings(str, charset) + 1));
-	while (*str != '\0')
+			* (count_strings(s, c) + 1));
+	while (*s != '\0')
 	{
-		while (*str != '\0' && check_separator(*str, charset))
-			str++;
-		if (*str != '\0')
+		while (*s != '\0' && check_separator(*s, c))
+			s++;
+		if (*s != '\0')
 		{
-			strings[i] = ft_word(str, charset);
+			strings[i] = ft_word(s, c);
 			i++;
 		}
-		while (*str && !check_separator(*str, charset))
-			str++;
+		while (*s && !check_separator(*s, c))
+			s++;
 	}
 	strings[i] = 0;
 	return (strings);

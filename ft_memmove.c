@@ -6,13 +6,13 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 14:07:47 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:40:43 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_memmove(void *dest, const void * src, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	unsigned char	*tmp_src;
 	unsigned char	*tmp_dest;

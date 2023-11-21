@@ -6,22 +6,22 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/14 17:24:27 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:44:43 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_memcpy(void *dest, const void * src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*tmp_src;
 	unsigned char	*tmp_dest;
-	int	i;
+	size_t				i;
 
 	i = 0;
 	tmp_src = (void *)src;
 	tmp_dest = dest;
-	while(tmp_src && tmp_dest && i < n)
+	while (tmp_src && tmp_dest && i < n)
 	{
 		*tmp_dest = *tmp_src;
 		tmp_src++;
@@ -31,7 +31,7 @@ void	*ft_memcpy(void *dest, const void * src, size_t n)
 	return (dest);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 #include <string.h>
 
 int main ()
@@ -54,4 +54,4 @@ int main ()
 	printf("After ft_memcpy dest = %s\n", dest);
 
 	return(0);
-}
+} */

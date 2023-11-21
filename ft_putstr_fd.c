@@ -6,14 +6,14 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:23 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 16:08:44 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:00:35 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h> 
 
-void    ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s)
 	{
