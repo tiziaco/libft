@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 11:19:50 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 16:13:02 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:40:58 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,17 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	strings = (char **)malloc(sizeof(char *)
-			* (count_strings(s, c) + 1));
+			* (count_strings(s, &c) + 1));
 	while (*s != '\0')
 	{
-		while (*s != '\0' && check_separator(*s, c))
+		while (*s != '\0' && check_separator(*s, &c))
 			s++;
 		if (*s != '\0')
 		{
-			strings[i] = ft_word(s, c);
+			strings[i] = ft_word(s, &c);
 			i++;
 		}
-		while (*s && !check_separator(*s, c))
+		while (*s && !check_separator(*s, &c))
 			s++;
 	}
 	strings[i] = 0;
