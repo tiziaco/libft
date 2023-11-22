@@ -6,13 +6,15 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:35:37 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 16:51:32 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:42:02 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

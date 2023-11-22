@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiacovel <tiacovel@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/08/29 18:53:14 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:47:34 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	mylen(char *str)
+#include <stdlib.h>
+
+static size_t	mylen(char *str)
 {
-	unsigned int	len;
+	size_t	len;
 
 	len = 0;
 	while (str[len] != '\0')
@@ -20,20 +22,22 @@ static unsigned int	mylen(char *str)
 	return (len);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, char *src, size_t dstsize)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	dsize;
-	unsigned int	ssize;
+	size_t	i;
+	size_t	j;
+	size_t	dsize;
+	size_t	ssize;
 
-	j = 0;
 	dsize = mylen(dest);
 	ssize = mylen(src);
+	if (!dest && dstsize == 0)
+		return (ssize);
+	if (dstsize <= dsize)
+		return (dstsize + ssize);
 	i = dsize;
-	if (size == 0 || size <= dsize)
-		return (ssize + size);
-	while (src[j] != '\0')
+	j = 0;
+	while (src[j] && dsize + i < dstsize - 1)
 		dest[i++] = src[j++];
 	dest[i] = '\0';
 	return (dsize + ssize);
@@ -49,8 +53,8 @@ int	main(void)
 	char s2[20] = " wordfg";
 	char s3[20] = "Hello";
 	char s4[20] = " wordfg";
-	unsigned int sz1;
-	unsigned int sz2;
+	size_t sz1;
+	size_t sz2;
 
 	sz1 = ft_strlcat(s1, s2, 2);
 	sz2 = strlcat(s3, s4, 2);
