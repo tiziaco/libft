@@ -6,30 +6,28 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:18:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 10:51:11 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:39:48 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
+	size_t	srclen;
 
+	srclen = ft_strlen(src);
+	if (size == 0)
+		return (srclen);
 	i = 0;
-	j = 0;
-	while (src[i] != '\0') 
+	while (src[i] != '\0' && i < (size - 1)) 
 	{
-		if (size && (i < (size - 1)))
-		{
-			dest[i] = src[i];
-			j++;
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	dest[j] = '\0';
-	return (i);
+	dest[i] = '\0';
+	return (srclen);
 }
 
 /* # include <stdio.h>

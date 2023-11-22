@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 18:42:22 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:45:17 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	is_num(char c)
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	result;

@@ -6,32 +6,34 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:35:37 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 13:32:08 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:27:20 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*pos;
+	int	i;
 
-	if (c == 0)
-		return ((char *)str);
-	pos = 0;
-	while (*str != '\0')
+	i = 0;
+	while (str[i])
+		i++;
+	while (i >= 0)
 	{
-		if (*str == c)
-			pos = (char *)str;
-		str++;
+		if (str[i] == (char)c)
+			return ((char *)(str + i));
+		i--;
 	}
-	return (pos);
+	return (0);
 }
 
 /* #include <stdio.h>
 #include <string.h>
 int	main(void)
 {
-	char	*string  = "Hello_world_idk";
-	char	c = '_';
+	char	*string  = "bonjour";
+	char	c = 'b';
 
 	printf("42 function: %s\n", ft_strrchr(string, c));
 	printf("STD function: %s", strrchr(string, c));

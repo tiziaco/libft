@@ -6,23 +6,28 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 10:56:15 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:35:48 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
 	char	*substr;
+	size_t	sublen;
+	size_t	slen;
 
-	substr = (char *)malloc(len + 1);
-	if (substr == 0)
+	slen = ft_strlen(s);
+	sublen = 0;
+	if (start < slen)
+		sublen = slen - start;
+	if (sublen > len)
+		sublen = len;
+	substr = (char *)malloc(sublen + 1);
+	if (!substr)
 		return (0);
-	i = 0;
-	while ((s[start] != 0) && (start < len))
-		substr[i++] = s[start++];
+	ft_strlcpy(substr, s + start, sublen + 1);
 	return (substr);
 }
 

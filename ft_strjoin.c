@@ -6,80 +6,38 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:59:06 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/09/13 11:14:33 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:17:06 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int	ft_strlen(char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-static char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-static int	calculate_total_str_length(char **strings, int size, int sep_length)
-{
-	int	final_length;
-	int	i;
-
-	final_length = 0;
-	i = 0;
-	while (i < size)
-	{
-		final_length += ft_strlen(strings[i]);
-		final_length += sep_length;
-		i++;
-	}
-	final_length -= sep_length;
-	return (final_length);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		full_length;
+	char	*new;
 	int		i;
-	char	*string;
-	char	*d;
+	int		j;
 
-	if (size == 0)
-		return ((char *)malloc(sizeof(char)));
-	full_length = calculate_total_str_length(strs, size, ft_strlen(sep));
-	d = (char *)malloc((full_length + 1) * sizeof(char));
-	if (!d)
-		return (0);
-	string = d;
 	i = 0;
-	while (i < size)
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	new = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new)
+		return (NULL);
+	while (s1[i])
 	{
-		ft_strcpy(d, strs[i]);
-		d += ft_strlen(strs[i]);
-		if (i++ < size - 1)
-		{
-			ft_strcpy(d, sep);
-			d += ft_strlen(sep);
-		}
+		new[i] = s1[i];
+		i++;
 	}
-	*d = '\0';
-	return (string);
+	while (s2[j])
+	{
+		new[i] = s2[j];
+		i++;
+		j++;
+	}
+	new[i] = '\0';
+	return (new);
 }
 
 /* #include <stdio.h>
