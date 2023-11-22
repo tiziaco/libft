@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:56:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/21 12:31:59 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:52:34 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ char			*ft_strchr(const char *str, int c);
 char			*ft_strdup(const char *src);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_strjoin(int size, char **strs, char *sep);
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
-int				ft_strlen(const char *str);
+size_t			ft_strlcat(char *dest, char *src, size_t dstsize);
+size_t			ft_strlcpy(char *dest, const char *src, size_t size);
+size_t			ft_strlen(const char *str);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
 char			*ft_strnstr(const char *haystack, const char *needle, 
