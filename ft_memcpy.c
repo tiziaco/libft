@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 18:44:43 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:03:51 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*tmp_src;
 	unsigned char	*tmp_dest;
-	size_t				i;
+	size_t			i;
 
 	i = 0;
 	tmp_src = (void *)src;

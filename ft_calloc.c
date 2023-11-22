@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:52:09 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 18:43:56 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:03:41 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	*ft_memset(void *str, int c, size_t n)
 {
 	unsigned char	*tmp;
-	size_t				i;
+	size_t			i;
 
 	i = 0;
 	tmp = str;
