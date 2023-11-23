@@ -6,47 +6,41 @@
 #    By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 18:33:34 by tiacovel          #+#    #+#              #
-#    Updated: 2023/11/23 19:16:23 by tiacovel         ###   ########.fr        #
+#    Updated: 2023/11/23 19:31:13 by tiacovel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ALL_FUNCTIONS	= $(wildcard *.c)
+SRCS			= 		ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c \
+						ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_substr.c ft_tolower.c ft_toupper.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
+						ft_strrchr.c ft_strncmp.c ft_strnstr.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
+						ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c 
 
-BONUS_FUNCTIONS := ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+B_SRCS			=		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-STD_FUNCTIONS := $(filter-out $(BONUS_FUNCTIONS),$(ALL_FUNCTIONS))
+OBJS			= $(SRCS:.c=.o)
+B_OBJS			= $(B_SRCS:.c=.o)
+	
+CC				= cc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror
+NAME			= libft.a
 
-STD_OBJS	= ${STD_FUNCTIONS:.c=.o}
+all: $(NAME)
 
-BONUS_OBJS = ${BONUS_FUNCTIONS:.c=.o}
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) -c $(SRCS)
+		ar rcs $(NAME) $(OBJS)
 
-NAME	= libft.a
-
-LIBC	= ar rc
-
-CC		= gcc
-
-CFLAGS	= -Wall -Wextra -Werror
-
-RM		= rm -f
-
-all: ${NAME} clean
-
-${NAME}: ${STD_OBJS}
-		${LIBC} ${NAME} ${STD_OBJS} 
-
-bonus:	$(STD_OBJS) $(BONUS_OBJS)
-		${LIBC} $(NAME) $(STD_OBJS) $(BONUS_OBJS)
-
-%.o: %.c
-	$(CC) -c $(CFLAGS) -I . -c $< -o $@
+bonus: $(B_OBJS) $(NAME)
+		$(CC) $(CFLAGS) -c $(B_SRCS)
+		ar rc $(NAME) $(B_OBJS)
 
 clean:
-		${RM} ${STD_OBJS} $(BONUS_OBJS)
+		$(RM) $(OBJS) $(B_OBJS)
 
-fclean: clean 
-		${RM} ${NAME}
+fclean: clean
+		$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY:  all clean fclean re bonus
+.PHONY: all clean fclean re bonus
