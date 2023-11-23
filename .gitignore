@@ -1,8 +1,0 @@
-*.pdf
-*.out
-*.dSYM
-*.txt
-*.a
-*.o
-.vscode
-.DS_Store
