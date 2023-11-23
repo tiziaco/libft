@@ -6,95 +6,101 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 11:19:50 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 17:40:58 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:10:28 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int	check_separator(char c, char *charset)
+static char	**free_array(char **ptr, int i)
 {
-	int	i;
-
-	i = 0;
-	while (charset[i] != '\0')
+	while (i > 0)
 	{
-		if (c == charset[i])
-			return (1);
-		i++;
+		i--;
+		free(ptr[i]);
 	}
+	free(ptr);
 	return (0);
 }
 
-static int	count_strings(char const *str, char *charset)
+static int	ft_count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] != '\0' && check_separator(str[i], charset))
+		if (str[i] == c)
 			i++;
-		if (str[i] != '\0')
+		else
+		{
 			count++;
-		while (str[i] != '\0' && !check_separator(str[i], charset))
-			i++;
+			while (str[i] && str[i] != c)
+				i++;
+		}
 	}
 	return (count);
 }
 
-static int	ft_strlen_sep(char const *str, char *charset)
+static char	*ft_putword(char *word, char const *s, int i, int word_len)
 {
-	int	i;
+	int	j;
 
-	i = 0;
-	while (str[i] && !check_separator(str[i], charset))
-		i++;
-	return (i);
+	j = 0;
+	while (word_len > 0)
+	{
+		word[j] = s[i - word_len];
+		j++;
+		word_len--;
+	}
+	word[j] = '\0';
+	return (word);
 }
 
-static char	*ft_word(char const *str, char *charset)
+static char	**ft_split_words(char const *s, char c, char **s2, int num_words)
 {
-	int		len_word;
-	int		i;
-	char	*word;
+	int	i;
+	int	word;
+	int	word_len;
 
 	i = 0;
-	len_word = ft_strlen_sep(str, charset);
-	word = (char *)malloc(sizeof(char) * (len_word + 1));
-	while (i < len_word)
+	word = 0;
+	word_len = 0;
+	while (word < num_words)
 	{
-		word[i] = str[i];
-		i++;
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			word_len++;
+		}
+		s2[word] = (char *)malloc(sizeof(char) * (word_len + 1));
+		if (!s2)
+			return (free_array(s2, word));
+		ft_putword(s2[word], s, i, word_len);
+		word_len = 0;
+		word++;
 	}
-	word[i] = '\0';
-	return (word);
+	s2[word] = 0;
+	return (s2);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strings;
-	int		i;
+	char			**s2;
+	unsigned int	num_words;
 
-	i = 0;
-	strings = (char **)malloc(sizeof(char *)
-			* (count_strings(s, &c) + 1));
-	while (*s != '\0')
-	{
-		while (*s != '\0' && check_separator(*s, &c))
-			s++;
-		if (*s != '\0')
-		{
-			strings[i] = ft_word(s, &c);
-			i++;
-		}
-		while (*s && !check_separator(*s, &c))
-			s++;
-	}
-	strings[i] = 0;
-	return (strings);
+	if (!s)
+		return (0);
+	num_words = ft_count_words(s, c);
+	s2 = (char **)malloc(sizeof(char *) * (num_words + 1));
+	if (!s2)
+		return (0);
+	s2 = ft_split_words(s, c, s2, num_words);
+	return (s2);
 }
 
 /* #include <stdio.h>
@@ -102,9 +108,10 @@ char	**ft_split(char const *s, char c)
 int main(void)
 {
 	char *str = "1: one";
+	char sep = ':';
 	char **res;
 
-	res = ft_split(str, ": ");
+	res = ft_split(str, sep);
 	printf("%s", res[1]);
 	return (0);
 } */

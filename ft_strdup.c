@@ -6,21 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:06:04 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 17:01:31 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:03:18 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-static int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {

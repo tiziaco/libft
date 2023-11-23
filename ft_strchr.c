@@ -6,11 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:35:37 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 14:05:50 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:29:06 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {

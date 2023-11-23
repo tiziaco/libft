@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:30:40 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 12:04:50 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:14:48 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*newlst;
+	t_list	*new;
 	t_list	*node;
 
-	if (!lst)
+	if (!f || !lst)
 		return (NULL);
-	newlst = NULL;
-	node = NULL;
+	new = NULL;
 	while (lst)
 	{
-		if (!f)
-			node = ft_lstnew(lst->content);
-		else
-			node = ft_lstnew(f(lst->content));
+		node = ft_lstnew(f(lst->content));
 		if (!node)
 		{
-			ft_lstclear(&newlst, del);
+			ft_lstclear(&node, (*del));
 			return (NULL);
 		}
-		ft_lstadd_back(&newlst, node);
+		ft_lstadd_back(&new, node);
 		lst = lst->next;
 	}
-	return (newlst);
+	return (new);
 }

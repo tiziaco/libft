@@ -6,9 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 15:45:17 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:22:09 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	is_space(char c)
 {

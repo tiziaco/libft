@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:27:18 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 12:04:15 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:19:19 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
 		return ;
-	if (del)
-		(del)(lst->content);
+	del(lst->content);
 	free(lst);
 }

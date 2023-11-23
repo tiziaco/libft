@@ -6,9 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 18:03:42 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 14:20:57 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:26:57 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 #include <stdlib.h>
 
