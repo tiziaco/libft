@@ -6,60 +6,70 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 16:09:52 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:38:34 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int	check_separator(char c, const char *charset)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (charset[i] != '\0')
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-static int	ft_strlen_sep(char const *str, const char *charset)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && !check_separator(str[i], charset))
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	sublen;
+	size_t	slen;
+
+	slen = ft_strlen(s);
+	sublen = 0;
+	if (start < slen)
+		sublen = slen - start;
+	if (sublen > len)
+		sublen = len;
+	substr = (char *)malloc(sizeof(char) * (sublen + 1));
+	if (!substr)
+		return (0);
+	ft_strlcpy(substr, s + start, sublen + 1);
+	return (substr);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	while ((char)c != *str)
+	{
+		if (!*str)
+			return (NULL);
+		str++;
+	}
+	return ((char *)str);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		len_word;
-	int		i;
-	char	*word;
+	char	*trim;
+	size_t	i;
+	size_t	j;
 
+	if (s1 == NULL)
+		return ((char *)s1);
+	if (set == NULL)
+		return (NULL);
 	i = 0;
-	len_word = ft_strlen_sep(s1, set);
-	word = (char *)malloc(sizeof(char) * (len_word + 1));
-	if (word == 0)
-		return (0);
-	while (*s1 != '\0')
-	{
-		while (*s1 != '\0' && check_separator(*s1, set))
-			s1++;
-		while (*s1 && !check_separator(*s1, set))
-		{
-			word[i] = *s1;
-			s1++;
-			i++;
-		}
-	}
-	word[i] = 0;
-	return (word);
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	j = ft_strlen(s1);
+	while (j > 0 && ft_strchr(set, s1[j - 1]))
+		j--;
+	trim = (char *)s1 + i;
+	return (ft_substr(trim, 0, j - i));
 }
 
 /* #include <stdio.h>
@@ -67,8 +77,8 @@ int	main(void)
 {
 	char s1[] = " lorem ipsum dolor sit amet";
 	char set[] = "l ";
+	char *trimmed = ft_strtrim(s1, set);
 
-	printf("42 function: %s", ft_strtrim(s1, set));
-	// printf("\nSTD function: %d", substr(s1, start, len));
+	printf("Trimmed string: %s\n", trimmed);
 	return (0);
 } */
