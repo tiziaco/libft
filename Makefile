@@ -6,7 +6,7 @@
 #    By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 18:33:34 by tiacovel          #+#    #+#              #
-#    Updated: 2023/11/20 18:39:59 by tiacovel         ###   ########.fr        #
+#    Updated: 2023/11/23 19:16:23 by tiacovel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,9 @@ STD_OBJS	= ${STD_FUNCTIONS:.c=.o}
 
 BONUS_OBJS = ${BONUS_FUNCTIONS:.c=.o}
 
-# INCDIR	= includes
-
 NAME	= libft.a
 
-LIBC	= ar rcs
-
-LIBR	= ranlib 
+LIBC	= ar rc
 
 CC		= gcc
 
@@ -34,18 +30,16 @@ CFLAGS	= -Wall -Wextra -Werror
 
 RM		= rm -f
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
 all: ${NAME} clean
 
 ${NAME}: ${STD_OBJS}
 		${LIBC} ${NAME} ${STD_OBJS} 
-		${LIBR} ${NAME}
 
 bonus:	$(STD_OBJS) $(BONUS_OBJS)
 		${LIBC} $(NAME) $(STD_OBJS) $(BONUS_OBJS)
-		${LIBR} ${NAME}
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) -I . -c $< -o $@
 
 clean:
 		${RM} ${STD_OBJS} $(BONUS_OBJS)
