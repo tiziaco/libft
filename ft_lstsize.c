@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:20:15 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 14:26:41 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:03:16 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ int	ft_lstsize(t_list *lst)
 	t_list	*ptr;
 
 	size = 0;
-	if (!lst)
-		return (size);
 	ptr = lst;
-	while (!ptr)
+	while (ptr != NULL)
 	{
 		size++;
 		ptr = ptr->next;

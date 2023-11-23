@@ -6,38 +6,28 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 10:47:34 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:51:31 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static size_t	mylen(char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
-}
-
-size_t	ft_strlcat(char *dest, char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
 	size_t	dsize;
 	size_t	ssize;
 
-	dsize = mylen(dest);
-	ssize = mylen(src);
+	dsize = ft_strlen(dest);
+	ssize = ft_strlen(src);
 	if (!dest && dstsize == 0)
 		return (ssize);
 	if (dstsize <= dsize)
 		return (dstsize + ssize);
 	i = dsize;
 	j = 0;
-	while (src[j] && dsize + i < dstsize - 1)
+	while (src[j] && i + 1 < dstsize)
 		dest[i++] = src[j++];
 	dest[i] = '\0';
 	return (dsize + ssize);
@@ -49,9 +39,9 @@ size_t	ft_strlcat(char *dest, char *src, size_t dstsize)
 
 int	main(void)
 {
-	char s1[20] = "Hello";
+	char s1[20] = "bonjour";
 	char s2[20] = " wordfg";
-	char s3[20] = "Hello";
+	char s3[20] = "bonjour";
 	char s4[20] = " wordfg";
 	size_t sz1;
 	size_t sz2;

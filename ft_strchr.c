@@ -6,14 +6,20 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 11:35:37 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 13:29:55 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:05:50 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 char	*ft_strchr(const char *str, int c)
 {
-	while ((*str != '\0') && (*str != c))
+	while ((char)c != *str)
+	{
+		if (!*str)
+			return (NULL);
 		str++;
+	}
 	return ((char *)str);
 }
 
@@ -21,11 +27,10 @@ char	*ft_strchr(const char *str, int c)
 #include <string.h>
 int	main(void)
 {
-	char	*string  = "Hello_world";
-	char	c = 0;
+	char	*string  = "bonjour";
+	char	c = 'o';
 
 	printf("42 function: %s\n", ft_strchr(string, c));
 	printf("STD function: %s\n", strchr(string, c));
 	return (0);
-}
- */
+} */

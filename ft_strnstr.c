@@ -6,38 +6,35 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 18:45:24 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:42:58 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-static int	ft_strcmp(const char *s1, const char *s2)
-{
-	while (*s1 != 0 && *s2 != 0)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
-	return (0);
-}
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
+	char	*haystack_tmp;
+	char	*needle_tmp;
 	size_t	i;
 
-	i = 0;
-	while ((*haystack != 0) && (i < len))
+	if (!ft_strlen(needle))
+		return ((char *)haystack);
+	if (!ft_strlen(haystack) || len < ft_strlen(needle))
+		return (0);
+	i = len - ft_strlen(needle) + 1;
+	while (i-- && *haystack)
 	{
-		if (*haystack == *needle)
+		haystack_tmp = (char *)haystack;
+		needle_tmp = (char *)needle;
+		while (*needle_tmp && *needle_tmp == *haystack_tmp)
 		{
-			if (ft_strcmp(haystack, needle) == 0)
-				return ((char *)haystack);
+			++haystack_tmp;
+			++needle_tmp;
 		}
-		haystack++;
-		i++;
+		if (!*needle_tmp)
+			return ((char *)haystack);
+		++haystack;
 	}
 	return (0);
 }

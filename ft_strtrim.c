@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 12:50:15 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:09:52 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	check_separator(char c, const char *charset)
 	return (0);
 }
 
-static int	ft_strlen_sep(const char *str, const char *charset)
+static int	ft_strlen_sep(char const *str, const char *charset)
 {
 	int	i;
 
@@ -65,8 +65,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 /* #include <stdio.h>
 int	main(void)
 {
-	char s1[] = "Hello--how--are--you";
-	char set[] = "-";
+	char s1[] = " lorem ipsum dolor sit amet";
+	char set[] = "l ";
 
 	printf("42 function: %s", ft_strtrim(s1, set));
 	// printf("\nSTD function: %d", substr(s1, start, len));
