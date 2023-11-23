@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:56:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 18:05:23 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:29:10 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
-
-// Bonus functions
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
@@ -69,5 +67,4 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-
 #endif
