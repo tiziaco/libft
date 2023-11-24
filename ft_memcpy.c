@@ -6,11 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 12:03:51 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:00:25 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -18,10 +18,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*tmp_dest;
 	size_t			i;
 
+	if (!dest && !src)
+		return (0);
 	i = 0;
 	tmp_src = (void *)src;
 	tmp_dest = dest;
-	while (tmp_src && tmp_dest && i < n)
+	while (i < n)
 	{
 		*tmp_dest = *tmp_src;
 		tmp_src++;

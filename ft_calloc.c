@@ -6,42 +6,21 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:52:09 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/23 16:02:29 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:45:07 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* static void	*ft_memset(void *str, int c, size_t n)
-{
-	unsigned char	*tmp;
-	size_t			i;
-
-	i = 0;
-	tmp = str;
-	while (tmp && i < n)
-	{
-		*tmp = c;
-		tmp++;
-		i++;
-	}
-	return (str);
-} */
-
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	size_t	total_size;
-	void	*allocated_memory;
+	void	*ptr;
 
-	if (nitems == 0 || size == 0)
+	ptr = malloc(nitems * size);
+	if (!ptr)
 		return (NULL);
-	total_size = nitems * size;
-	if (total_size / nitems != size)
-		return (NULL);
-	allocated_memory = malloc(total_size);
-	if (allocated_memory != NULL)
-		ft_memset(allocated_memory, 0, total_size);
-	return (allocated_memory);
+	ft_memset(ptr, 0, nitems * size);
+	return (ptr);
 }
 
 /* #include <stdio.h>
