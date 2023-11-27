@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:52:09 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/24 15:45:07 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:29:18 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nitems, size_t size)
 	ptr = malloc(nitems * size);
 	if (!ptr)
 		return (NULL);
-	ft_memset(ptr, 0, nitems * size);
+	ft_bzero(ptr, nitems * size);
 	return (ptr);
 }
 
