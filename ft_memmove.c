@@ -6,17 +6,19 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:43:38 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 13:40:43 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:00:29 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	unsigned char	*tmp_src;
 	unsigned char	*tmp_dest;
 
+	if (!dest && !src)
+		return (0);
 	tmp_src = (void *)src;
 	tmp_dest = dest;
 	if (tmp_dest > tmp_src && tmp_dest < tmp_src + size)

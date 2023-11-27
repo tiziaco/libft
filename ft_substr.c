@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:53:20 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/22 18:07:09 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:54:50 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,42 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
-	size_t	sublen;
-	size_t	slen;
+	char	*newstr;
+	size_t	i;
 
-	slen = ft_strlen(s);
-	sublen = 0;
-	if (start < slen)
-		sublen = slen - start;
-	if (sublen > len)
-		sublen = len;
-	substr = (char *)malloc(sizeof(char) * (sublen + 1));
-	if (!substr)
-		return (0);
-	ft_strlcpy(substr, s + start, sublen + 1);
-	return (substr);
+	i = 0;
+	if (start >= ft_strlen(s))
+	{
+		newstr = malloc(sizeof(char));
+		if (!newstr)
+			return (NULL);
+		newstr[0] = '\0';
+		return (newstr);
+	}
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
+	newstr = malloc(sizeof(char) * len + 1);
+	if (newstr == NULL)
+		return (NULL);
+	while (i < len && s[i] != '\0')
+	{
+		newstr[i] = s[start];
+		i++;
+		start++;
+	}
+	newstr[i] = '\0';
+	return (newstr);
 }
 
 /* #include <stdio.h>
 
 int	main(void)
 {
-	char s1[] = "Hello how are you";
-	size_t start = 3;
-	int len = 15;
+	char s1[] = "hola";
+	unsigned int start = 4294967295;
+	size_t len = 0;
 
-	printf("42 function: %s", ft_substr("hola", 4294967295, 0));
-	// printf("\nSTD function: %d", substr(s1, start, len));
+	printf("42 function: %s", ft_substr(s1, start, len));
+	//printf("\nSTD function: %d", substr(s1, start, len));
 	return (0);
-} 
-*/
+}  */

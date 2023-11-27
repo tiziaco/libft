@@ -6,12 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:23 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/15 16:07:39 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:27:57 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <fcntl.h> 
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

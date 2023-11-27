@@ -6,12 +6,11 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:23 by tiacovel          #+#    #+#             */
-/*   Updated: 2023/11/20 14:17:24 by tiacovel         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:28:19 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <fcntl.h> 
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
@@ -24,6 +23,7 @@ void	ft_putendl_fd(char *s, int fd)
 }
 
 /* #include <stdio.h>
+#include <fcntl.h> 
 int main(void)
 {
 	int fd;
