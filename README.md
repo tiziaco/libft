@@ -1,8 +1,64 @@
-# Libft - Crafting Your Unique C Library
+# Libft
 
 Libft marks the begin of the 42 school's programming curriculum. This project involves the reconstruction of essential standard functions for the C language. 
 
-Beyond the surface, Libft is a gateway to the fundamental realms of C programming, offering a profound exploration of concepts such as data types, variable definitions, function implementations, and the art of library development. It lays the groundwork for a comprehensive understanding of the intricate tapestry that is C programming, fostering a solid foundation for the journey that lies ahead in the 42 school's curriculum.
+Beyond the surface, Libft is a gateway to the fundamental realms of C programming, offering a profound exploration of concepts such as data types, variable definitions, function implementations, and the art of library development. It lays the groundwork for a comprehensive understanding of the intricate world of C programming, giving a solid foundation for the next projects of the 42's curriculum.
+
+Functions to check and manipulate characters:
+
+- ft_isalpha
+- ft_isdigit
+ft_isalnum
+ft_isascii
+ft_isprint
+ft_toupper
+ft_tolower
+Functions to manipulate strings:
+
+ft_strlen
+ft_strlcpy
+ft_strlcat
+ft_strchr
+ft_strrchr
+ft_strncmp
+ft_strnstr
+ft_substr
+ft_strjoin
+ft_strtrim
+ft_split
+ft_strmapi
+ft_striteri
+Functions to manipulate memory:
+
+ft_calloc
+ft_memset
+ft_bzero
+ft_memcpy
+ft_memmove
+ft_memchr
+ft_memcmp
+ft_strdup
+Functions for numbers:
+
+ft_atoi
+ft_itoa
+Functions to write to a file descriptor
+
+ft_putchar_fd
+ft_putstr_fd
+ft_putendl_fd
+ft_putnbr_fd
+
+
+ft_lstnew
+ft_lstadd_front
+ft_lstsize
+ft_lstlast
+ft_lstadd_back
+ft_lstdelone
+ft_lstclear
+ft_lstiter
+ft_lstmap
 
 ## Getting Started
 
