@@ -72,7 +72,7 @@ Functions to manipulate lists:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/libft.git
+    git clone https://github.com/tiziaco/libft.git
     ```
 
 2. Move to the project's folder:
@@ -94,11 +94,5 @@ Functions to manipulate lists:
     ```c
     #include "libft.h"
     ```
-
-2. When embarking on new ventures, ensure the functions in your library align with the guiding constellations of the project guidelines.
-
-## License
-
-This enchanted project is licensed under the MIT License - glimpse the magical runes in [LICENSE.md](LICENSE.md) for details.
 
 ---
